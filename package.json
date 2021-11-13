@@ -1,23 +1,21 @@
 {
-	"name": "decompress-targz",
+	"name": "@xingrz/decompress-targz",
 	"version": "4.1.1",
 	"description": "decompress tar.gz plugin",
-	"license": "MIT",
-	"repository": "kevva/decompress-targz",
-	"author": {
-		"name": "Kevin Mårtensson",
-		"email": "kevinmartensson@gmail.com",
-		"url": "https://github.com/kevva"
-	},
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
 	"engines": {
-		"node": ">=4"
+		"node": ">=10"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"build": "tsc -p .",
+		"test": "jest",
+		"prepublishOnly": "rm -rf lib && npm run build"
 	},
-	"files": [
-		"index.js"
-	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/xingrz/decompress-targz.git"
+	},
 	"keywords": [
 		"decompress",
 		"decompressplugin",
@@ -25,15 +23,27 @@
 		"tar.gz",
 		"targz"
 	],
+	"author": {
+		"name": "Kevin Mårtensson",
+		"email": "kevinmartensson@gmail.com",
+		"url": "https://github.com/kevva"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/xingrz/decompress-targz/issues"
+	},
+	"homepage": "https://github.com/xingrz/decompress-targz#readme",
 	"dependencies": {
-		"decompress-tar": "^4.1.1",
-		"file-type": "^5.2.0",
-		"is-stream": "^1.1.0"
+		"@xingrz/decompress-tar": "^5.1.0-alpha.3",
+		"@xingrz/decompress-types": "^5.1.0-alpha.0",
+		"file-type": "^16.5.3",
+		"is-stream": "^2.0.1"
 	},
 	"devDependencies": {
-		"ava": "*",
-		"is-jpg": "^1.0.0",
-		"pify": "^3.0.0",
-		"xo": "*"
+		"@types/jest": "^27.0.2",
+		"@types/node": "^16.11.7",
+		"jest": "^27.3.1",
+		"ts-jest": "^27.0.7",
+		"typescript": "^4.4.4"
 	}
 }
